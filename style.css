@@ -1,0 +1,307 @@
+body {
+font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+margin: 0;
+padding: 0;
+background-color: #f3f4f6;
+color: #111827;
+}
+
+.laborauftrag-page {
+max-width: 1120px;
+margin: 0 auto;
+padding: 32px 20px 48px 20px;
+}
+
+.laborauftrag-header-section {
+margin-bottom: 28px;
+}
+
+.laborauftrag-header-section h1 {
+margin: 0 0 6px 0;
+font-size: 26px;
+letter-spacing: 0.01em;
+}
+
+.laborauftrag-header-section p {
+margin: 0;
+font-size: 14px;
+color: #6b7280;
+}
+
+.laborauftrag-form-section {
+background-color: #ffffff;
+padding: 20px 20px 12px 20px;
+margin-top: 36px;
+border-radius: 12px;
+box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+border: 1px solid #e5e7eb;
+margin-bottom: 28px;
+}
+
+.laborauftrag-form {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 14px 18px;
+}
+
+.laborauftrag-form-row {
+display: flex;
+flex-direction: column;
+gap: 6px;
+}
+
+.laborauftrag-form-row label {
+font-size: 13px;
+font-weight: 500;
+color: #374151;
+}
+
+.laborauftrag-form-row input,
+.laborauftrag-form-row textarea {
+font-family: inherit;
+font-size: 14px;
+padding: 8px 10px;
+border-radius: 8px;
+border: 1px solid #d1d5db;
+box-sizing: border-box;
+background-color: #f9fafb;
+transition: border-color 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.laborauftrag-form-row textarea {
+resize: vertical;
+min-height: 80px;
+}
+
+.laborauftrag-form-row input:focus,
+.laborauftrag-form-row textarea:focus {
+outline: none;
+border-color: #2563eb;
+background-color: #ffffff;
+box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.22);
+}
+
+.laborauftrag-form-actions {
+grid-column: 1 / -1;
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-top: 12px;
+justify-content: flex-end;
+}
+
+.laborauftrag-button-primary,
+.laborauftrag-button-secondary,
+.laborauftrag-button-danger,
+.laborauftrag-button-table {
+border: none;
+border-radius: 999px;
+padding: 8px 16px;
+font-size: 14px;
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 6px;
+font-weight: 500;
+transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease, border-color 0.12s ease;
+}
+
+.laborauftrag-button-primary {
+background-color: #2563eb;
+color: #ffffff;
+box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.laborauftrag-button-primary:disabled {
+opacity: 0.5;
+cursor: default;
+box-shadow: none;
+transform: none;
+}
+
+.laborauftrag-button-secondary {
+background-color: #e5e7eb;
+color: #111827;
+}
+
+.laborauftrag-button-danger {
+background-color: #ef4444;
+color: #ffffff;
+box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35);
+}
+
+.laborauftrag-button-table {
+background-color: transparent;
+color: #ef4444;
+padding: 5px 10px;
+border-radius: 999px;
+border: 1px solid #fecaca;
+font-size: 12px;
+}
+
+.laborauftrag-button-primary:hover:not(:disabled),
+.laborauftrag-button-secondary:hover,
+.laborauftrag-button-danger:hover,
+.laborauftrag-button-table:hover {
+transform: translateY(-1px);
+box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+}
+
+.laborauftrag-button-secondary:hover {
+background-color: #d1d5db;
+}
+
+.laborauftrag-button-table:hover {
+background-color: #fee2e2;
+border-color: #fca5a5;
+}
+
+.laborauftrag-list-section {
+background-color: #ffffff;
+padding: 20px 20px 18px 20px;
+border-radius: 12px;
+box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+border: 1px solid #e5e7eb;
+}
+
+.laborauftrag-list-section h2 {
+margin: 0 0 14px 0;
+font-size: 18px;
+color: #111827;
+}
+
+.laborauftrag-list-actions {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-bottom: 14px;
+justify-content: flex-end;
+}
+
+.laborauftrag-table-wrapper {
+max-height: 420px;
+overflow: auto;
+border-radius: 10px;
+border: 1px solid #e5e7eb;
+background-color: #f9fafb;
+}
+
+.laborauftrag-table {
+width: 100%;
+border-collapse: collapse;
+font-size: 13px;
+min-width: 100%;
+}
+
+.laborauftrag-table thead {
+position: sticky;
+top: 0;
+background-color: #111827;
+z-index: 1;
+color: #f9fafb;
+}
+
+.laborauftrag-table th,
+.laborauftrag-table td {
+padding: 8px 10px;
+border-bottom: 1px solid #e5e7eb;
+text-align: left;
+white-space: nowrap;
+}
+
+.laborauftrag-table th {
+font-weight: 500;
+font-size: 12px;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+}
+
+.laborauftrag-table tbody tr:nth-child(even) {
+background-color: #f3f4f6;
+}
+
+.laborauftrag-table tbody tr:hover {
+background-color: #e5f0ff;
+}
+
+.laborauftrag-table-empty {
+padding: 12px;
+font-size: 13px;
+color: #6b7280;
+}
+
+@media (max-width: 640px) {
+.laborauftrag-page {
+padding: 20px 12px 32px 12px;
+}
+
+.laborauftrag-form-section {
+padding: 16px 14px 10px 14px;
+}
+
+.laborauftrag-list-section {
+padding: 16px 14px 14px 14px;
+}
+
+.laborauftrag-table th,
+.laborauftrag-table td {
+white-space: normal;
+}
+}
+
+.laborauftrag-modal-backdrop {
+position: fixed;
+inset: 0;
+background-color: rgba(15, 23, 42, 0.45);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 50;
+}
+
+.laborauftrag-modal {
+background-color: #ffffff;
+border-radius: 12px;
+padding: 20px 24px 18px 24px;
+max-width: 420px;
+width: 100%;
+box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+border: 1px solid #e5e7eb;
+}
+
+.laborauftrag-modal-title {
+margin: 0 0 12px 0;
+font-size: 18px;
+color: #111827;
+}
+
+.laborauftrag-modal-content {
+display: flex;
+flex-direction: column;
+gap: 6px;
+margin-bottom: 16px;
+font-size: 14px;
+}
+
+.laborauftrag-modal-row {
+display: flex;
+justify-content: space-between;
+gap: 12px;
+}
+
+.laborauftrag-modal-label {
+font-weight: 500;
+color: #374151;
+}
+
+.laborauftrag-modal-value {
+text-align: right;
+color: #111827;
+}
+
+.laborauftrag-modal-actions {
+display: flex;
+justify-content: flex-end;
+gap: 8px;
+}

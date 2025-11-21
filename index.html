@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laborauftrag Kopfdaten</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section class="laborauftrag-page">
+
+<section class="laborauftrag-header-section">
+<h1>Laborauftrag (Kopfdaten, Proben, Probenparameter)</h1>
+<p>Erfasse Laboraufträge, Proben und Probenparameter offline im Browser. Die Daten werden lokal auf diesem Gerät gespeichert.</p>
+</section>
+
+<section class="laborauftrag-form-section">
+<h2>Laborauftrag (Kopfdaten)</h2>
+<form id="laborauftragForm" class="laborauftrag-form">
+<div class="laborauftrag-form-row">
+<label for="laborauftragId">Id</label>
+<input id="laborauftragId" type="text" maxlength="34" required>
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragNummer">Nummer</label>
+<input id="laborauftragNummer" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragAuftraggeber">Auftraggeber</label>
+<input id="laborauftragAuftraggeber" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragProbenehmer">Probenehmer</label>
+<input id="laborauftragProbenehmer" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragBezeichnung">Bezeichnung</label>
+<input id="laborauftragBezeichnung" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragBeschreibung">Beschreibung</label>
+<textarea id="laborauftragBeschreibung" rows="3"></textarea>
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragCreatedBy">Created By</label>
+<input id="laborauftragCreatedBy" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragCreatedOn">Created On</label>
+<input id="laborauftragCreatedOn" type="datetime-local">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragChangeBy">Change By</label>
+<input id="laborauftragChangeBy" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragChangeOn">Change On</label>
+<input id="laborauftragChangeOn" type="datetime-local">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborauftragInfo">Info</label>
+<input id="laborauftragInfo" type="text">
+</div>
+<div class="laborauftrag-form-actions">
+<button type="submit" class="laborauftrag-button-primary">Speichern</button>
+<button type="reset" class="laborauftrag-button-secondary" id="laborauftragResetButton">Formular leeren</button>
+</div>
+</form>
+</section>
+
+<section class="laborauftrag-list-section">
+<h2>Gespeicherte Laboraufträge</h2>
+<div class="laborauftrag-list-actions">
+<button id="laborauftragExportButton" class="laborauftrag-button-secondary">Als JSON exportieren</button>
+<button id="laborauftragClearButton" class="laborauftrag-button-danger">Alle löschen</button>
+</div>
+<div class="laborauftrag-table-wrapper">
+<table class="laborauftrag-table">
+<thead>
+<tr>
+<th>Id</th>
+<th>Nummer</th>
+<th>Auftraggeber</th>
+<th>Probenehmer</th>
+<th>Bezeichnung</th>
+<th>Created On</th>
+<th>Change On</th>
+<th>Aktionen</th>
+</tr>
+</thead>
+<tbody id="laborauftragTableBody"></tbody>
+</table>
+</div>
+</section>
+
+<section class="laborauftrag-form-section">
+<h2>Proben (Detailtabelle)</h2>
+<p>Proben, die einem Laborauftrag zugeordnet sind. MasterID verweist auf die Id des Laborauftrags.</p>
+<form id="laborprobeForm" class="laborauftrag-form">
+<div class="laborauftrag-form-row">
+<label for="laborprobeId">Id</label>
+<input id="laborprobeId" type="text" maxlength="34" required>
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeMasterId">MasterID</label>
+<input id="laborprobeMasterId" type="text" maxlength="34">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeNummer">Nummer</label>
+<input id="laborprobeNummer" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeBezeichnung">Bezeichnung</label>
+<input id="laborprobeBezeichnung" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeBeschreibung">Beschreibung</label>
+<textarea id="laborprobeBeschreibung" rows="3"></textarea>
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeProbenahmeDatum">Probenahme-Datum</label>
+<input id="laborprobeProbenahmeDatum" type="datetime-local">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeCreatedBy">Created By</label>
+<input id="laborprobeCreatedBy" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeCreatedOn">Created On</label>
+<input id="laborprobeCreatedOn" type="datetime-local">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeChangeBy">Change By</label>
+<input id="laborprobeChangeBy" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeChangeOn">Change On</label>
+<input id="laborprobeChangeOn" type="datetime-local">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeInfo">Info</label>
+<input id="laborprobeInfo" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborprobeGeoId">GeoID</label>
+<input id="laborprobeGeoId" type="text">
+</div>
+<div class="laborauftrag-form-actions">
+<button type="submit" class="laborauftrag-button-primary">Speichern</button>
+<button type="reset" class="laborauftrag-button-secondary" id="laborprobeResetButton">Formular leeren</button>
+</div>
+</form>
+</section>
+
+<section class="laborauftrag-list-section">
+<h2>Gespeicherte Proben</h2>
+<div class="laborauftrag-list-actions">
+<button id="laborprobeExportButton" class="laborauftrag-button-secondary">Als JSON exportieren</button>
+<button id="laborprobeClearButton" class="laborauftrag-button-danger">Alle löschen</button>
+</div>
+<div class="laborauftrag-table-wrapper">
+<table class="laborauftrag-table">
+<thead>
+<tr>
+<th>Id</th>
+<th>MasterID</th>
+<th>Nummer</th>
+<th>Bezeichnung</th>
+<th>Probenahme-Datum</th>
+<th>Created On</th>
+<th>Change On</th>
+<th>Aktionen</th>
+</tr>
+</thead>
+<tbody id="laborprobeTableBody"></tbody>
+</table>
+</div>
+</section>
+
+<section class="laborauftrag-form-section">
+<h2>Probenparameter (Detail zur Probe)</h2>
+<p>Parameter zu einer Probe. MasterID verweist auf die Id der Probe.</p>
+<form id="laborparameterForm" class="laborauftrag-form">
+<div class="laborauftrag-form-row">
+<label for="laborparameterId">Id</label>
+<input id="laborparameterId" type="text" maxlength="34" required>
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterMasterId">MasterID</label>
+<input id="laborparameterMasterId" type="text" maxlength="34">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterName">Name</label>
+<input id="laborparameterName" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterMethode">Methode</label>
+<input id="laborparameterMethode" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterErgebnis1">Ergebnis 1</label>
+<input id="laborparameterErgebnis1" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterErgebnis2">Ergebnis 2</label>
+<input id="laborparameterErgebnis2" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterErgebnis3">Ergebnis 3</label>
+<input id="laborparameterErgebnis3" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterMasseinheit1">Masseinheit 1</label>
+<input id="laborparameterMasseinheit1" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterMasseinheit2">Masseinheit 2</label>
+<input id="laborparameterMasseinheit2" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterMasseinheit3">Masseinheit 3</label>
+<input id="laborparameterMasseinheit3" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterCreatedBy">Created By</label>
+<input id="laborparameterCreatedBy" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterCreatedOn">Created On</label>
+<input id="laborparameterCreatedOn" type="datetime-local">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterChangeBy">Change By</label>
+<input id="laborparameterChangeBy" type="text">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterChangeOn">Change On</label>
+<input id="laborparameterChangeOn" type="datetime-local">
+</div>
+<div class="laborauftrag-form-row">
+<label for="laborparameterInfo">Info</label>
+<input id="laborparameterInfo" type="text">
+</div>
+<div class="laborauftrag-form-actions">
+<button type="submit" class="laborauftrag-button-primary">Speichern</button>
+<button type="reset" class="laborauftrag-button-secondary" id="laborparameterResetButton">Formular leeren</button>
+</div>
+</form>
+</section>
+
+<section class="laborauftrag-list-section">
+<h2>Gespeicherte Probenparameter</h2>
+<div class="laborauftrag-list-actions">
+<button id="laborparameterExportButton" class="laborauftrag-button-secondary">Als JSON exportieren</button>
+<button id="laborparameterClearButton" class="laborauftrag-button-danger">Alle löschen</button>
+</div>
+<div class="laborauftrag-table-wrapper">
+<table class="laborauftrag-table">
+<thead>
+<tr>
+<th>Id</th>
+<th>MasterID</th>
+<th>Name</th>
+<th>Methode</th>
+<th>Ergebnis 1</th>
+<th>Ergebnis 2</th>
+<th>Ergebnis 3</th>
+<th>Aktionen</th>
+</tr>
+</thead>
+<tbody id="laborparameterTableBody"></tbody>
+</table>
+</div>
+</section>
+
+<section class="laborauftrag-modal-backdrop" id="laborModalBackdrop">
+<section class="laborauftrag-modal">
+<h3 class="laborauftrag-modal-title" id="laborModalTitle">Details</h3>
+<div class="laborauftrag-modal-content" id="laborModalContent"></div>
+<div class="laborauftrag-modal-actions" id="laborModalActions"></div>
+</section>
+</section>
+
+</section>
+<script src="app.js"></script>
+</body>
+</html>
